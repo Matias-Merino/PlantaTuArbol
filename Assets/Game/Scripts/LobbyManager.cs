@@ -17,6 +17,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public PlayerItem playerItemPrefab;
     public Transform playerItemParent;
 
+    
+    
+
     private void Start()
     {
         PhotonNetwork.JoinLobby();
@@ -43,6 +46,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         roomOptions.IsOpen = true;
         roomOptions.IsVisible = true;
         roomOptions.MaxPlayers = 2;
+        
         PhotonNetwork.CreateRoom(randomRoomName,roomOptions);
     }
 
@@ -72,7 +76,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
 
-        PhotonNetwork.LoadLevel("DesertScene");
+        PhotonNetwork.LoadLevel("Forest_Scene");
     }
 
     void UpdatePlayerList()

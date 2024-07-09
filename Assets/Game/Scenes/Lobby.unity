@@ -1093,7 +1093,7 @@ MonoBehaviour:
   lobbyPanel: {fileID: 1514958132}
   roomPanel: {fileID: 7664870}
   playerItemsList: []
-  playerItemPrefab: {fileID: 4925481764636969059, guid: 9df8a9a3e94d59e4b8523421c62666a2, type: 3}
+  playerItemPrefab: {fileID: 6314575910796180102, guid: 9df8a9a3e94d59e4b8523421c62666a2, type: 3}
   playerItemParent: {fileID: 1949708963}
 --- !u!4 &1917401693
 Transform:

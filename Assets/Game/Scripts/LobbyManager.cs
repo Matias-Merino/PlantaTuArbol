@@ -19,20 +19,47 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
-    public void OnClickCreate()
+  
+   
+    public void JoinRandomRoom()
     {
-        if (roomInputField.text.Length >= 1)
-        {
-            PhotonNetwork.CreateRoom(roomInputField.text,new RoomOptions() { MaxPlayers = 2});
-        }
+        PhotonNetwork.JoinRandomRoom();
+    }
+
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        base.OnJoinRandomFailed(returnCode, message);
+        Debug.Log(message);
+        CreateAndJoinRoom();
+    }
+
+    private void CreateAndJoinRoom()
+    {
+        string randomRoomName = "Room " + Random.Range(0, 1000);
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.IsOpen = true;
+        roomOptions.IsVisible = true;
+        roomOptions.MaxPlayers = 2;
+        PhotonNetwork.CreateRoom(randomRoomName,roomOptions);
     }
 
     public override void OnJoinedRoom()
     {
-        lobbyPanel.SetActive(false);
-        roomPanel.SetActive(true);
-        roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
+        Debug.Log(PhotonNetwork.NickName + " joined to " + PhotonNetwork.CurrentRoom.Name);
     }
 
-    
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Debug.Log(newPlayer.NickName+" joined to " + PhotonNetwork.CurrentRoom.Name +" "+ PhotonNetwork.CurrentRoom.PlayerCount);
+    }
+
+
+    public void OnStartGameButtonClicked()
+    {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
+
+        PhotonNetwork.LoadLevel("DesertScene");
+    }
+
 }

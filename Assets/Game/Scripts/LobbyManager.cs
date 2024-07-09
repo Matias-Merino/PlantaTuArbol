@@ -17,6 +17,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public PlayerItem playerItemPrefab;
     public Transform playerItemParent;
 
+    public GameObject playButton;
     
     
 
@@ -70,14 +71,25 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         UpdatePlayerList();
     }
 
-
-    public void OnStartGameButtonClicked()
+    public void Update()
     {
-        PhotonNetwork.CurrentRoom.IsOpen = false;
-        PhotonNetwork.CurrentRoom.IsVisible = false;
-
-        PhotonNetwork.LoadLevel("Forest_Scene");
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            playButton.SetActive(true);
+        }
+        else
+        {
+            playButton.SetActive(false);
+        }
     }
+
+    public void OnClickPlayButton()
+    {
+        PhotonNetwork.LoadLevel("Forest_Scene");
+
+    }
+
+    
 
     void UpdatePlayerList()
     {

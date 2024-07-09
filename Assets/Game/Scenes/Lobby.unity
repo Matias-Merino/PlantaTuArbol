@@ -241,7 +241,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1917401692}
         m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
-        m_MethodName: OnStartGameButtonClicked
+        m_MethodName: OnClickPlayButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1095,6 +1095,7 @@ MonoBehaviour:
   playerItemsList: []
   playerItemPrefab: {fileID: 6314575910796180102, guid: 9df8a9a3e94d59e4b8523421c62666a2, type: 3}
   playerItemParent: {fileID: 1949708963}
+  playButton: {fileID: 65702434}
 --- !u!4 &1917401693
 Transform:
   m_ObjectHideFlags: 0

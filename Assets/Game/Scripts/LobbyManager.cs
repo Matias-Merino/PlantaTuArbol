@@ -9,10 +9,13 @@ using TMPro;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
-    public TMP_InputField roomInputField;
+   
     public GameObject lobbyPanel;
     public GameObject roomPanel;
-    public TMP_Text roomName;
+
+    public List<PlayerItem> playerItemsList = new List<PlayerItem>();
+    public PlayerItem playerItemPrefab;
+    public Transform playerItemParent;
 
     private void Start()
     {
@@ -48,11 +51,19 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         lobbyPanel.SetActive(false);
         roomPanel.SetActive(true);
         Debug.Log(PhotonNetwork.NickName + " joined to " + PhotonNetwork.CurrentRoom.Name);
+        UpdatePlayerList();
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
+        
         Debug.Log(newPlayer.NickName+" joined to " + PhotonNetwork.CurrentRoom.Name +" "+ PhotonNetwork.CurrentRoom.PlayerCount);
+        UpdatePlayerList();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        UpdatePlayerList();
     }
 
 
@@ -62,6 +73,34 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.IsVisible = false;
 
         PhotonNetwork.LoadLevel("DesertScene");
+    }
+
+    void UpdatePlayerList()
+    {
+        foreach (PlayerItem item in playerItemsList)
+        {
+            Destroy(item.gameObject);
+        }
+        playerItemsList.Clear();
+
+        if (PhotonNetwork.CurrentRoom == null)
+        {
+            return;
+        }
+
+        foreach (KeyValuePair<int,Player> player in PhotonNetwork.CurrentRoom.Players)
+        {
+            PlayerItem newPlayeritem = Instantiate(playerItemPrefab, playerItemParent);
+            newPlayeritem.SetPlayerInfo(player.Value);
+
+            if(player.Value == PhotonNetwork.LocalPlayer)
+            {
+                
+                newPlayeritem.ApplyLocalChanges();
+            }
+
+            playerItemsList.Add(newPlayeritem);
+        }
     }
 
 }

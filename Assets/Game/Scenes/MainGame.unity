@@ -875,6 +875,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6846767348704259191, guid: 273b8f4150121d249ac7e2fd11da7005, type: 3}
   m_PrefabInstance: {fileID: 1788537334}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &108326085
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +970,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 41.875, y: -25.571, z: 6.145}
+=======
+>>>>>>> parent of c70c8da (Score y cambios en gamemanager)
 --- !u!1001 &114229797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22322,5 +22325,8 @@ SceneRoots:
   - {fileID: 1965744429}
   - {fileID: 623729621}
   - {fileID: 203114269}
+<<<<<<< HEAD
   - {fileID: 108326087}
   - {fileID: 1148545964}
+=======
+>>>>>>> parent of c70c8da (Score y cambios en gamemanager)

@@ -39,8 +39,11 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+<<<<<<< HEAD
   - RPC_WaterTree
   - UpdateScore
+=======
+>>>>>>> parent of c70c8da (Score y cambios en gamemanager)
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

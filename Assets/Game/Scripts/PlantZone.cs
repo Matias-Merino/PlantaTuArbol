@@ -20,14 +20,7 @@ public class PlantZone : MonoBehaviour
 
     public void PlantTree()
     {
-        if (!hasTree)
-        {
-            hasTree = true;
-            if (gameManager != null)
-            {
-                gameManager.OnTreePlanted();
-            }
-        }
+        hasTree = true;
+        gameManager.CheckVictory();
     }
 }
-

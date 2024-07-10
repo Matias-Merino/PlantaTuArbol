@@ -5,24 +5,17 @@ using UnityEngine;
 
 public class WaterPickup : MonoBehaviourPun
 {
-    private bool canPickup = false;
-    private bool hasWater = false;
-
-    public bool HasWater()
-    {
-        return hasWater;
-    }
-
-    public void UseWater()
-    {
-        hasWater = false;
-    }
+    public bool canPickup = false;
+    public bool hasWater = false;
 
     void Update()
     {
         if (!photonView.IsMine)
             return;
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("E presionada");
+        }
         if (canPickup && Input.GetKeyDown(KeyCode.E))
         {
             hasWater = true;
@@ -46,5 +39,14 @@ public class WaterPickup : MonoBehaviourPun
             canPickup = false;
             Debug.Log("Has salido de la zona de recogida de agua.");
         }
+    }
+    public bool HasWater()
+    {
+        return hasWater;
+    }
+
+    public void UseWater()
+    {
+        hasWater = false;
     }
 }

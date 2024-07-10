@@ -40,7 +40,6 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - RPC_WaterTree
-  - UpdateScore
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

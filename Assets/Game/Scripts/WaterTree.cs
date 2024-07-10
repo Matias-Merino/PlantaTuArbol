@@ -12,6 +12,10 @@ public class WaterTree : MonoBehaviourPun
     {
         if (!photonView.IsMine)
             return;
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("E presionada");
+        }
 
         if (canWater && Input.GetKeyDown(KeyCode.E))
         {

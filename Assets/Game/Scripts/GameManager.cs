@@ -7,30 +7,11 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     private PlantZone[] plantZones;
     private TreeGrowth[] trees;
-    private UIManager uiManager;
-
-    public GameObject uiPrefab; // Arrastra aquí el prefab de la UI desde el Inspector
 
     void Start()
     {
         plantZones = FindObjectsOfType<PlantZone>();
         trees = FindObjectsOfType<TreeGrowth>();
-
-        if (PhotonNetwork.IsConnectedAndReady)
-        {
-            // Instancia el prefab del UI para ambos jugadores
-            GameObject uiInstance = PhotonNetwork.Instantiate(uiPrefab.name, Vector3.zero, Quaternion.identity);
-            uiManager = uiInstance.GetComponent<UIManager>();
-        }
-    }
-
-    public void OnTreePlanted()
-    {
-        if (uiManager != null)
-        {
-            uiManager.AddScore(1);
-        }
-        CheckVictory();
     }
 
     public void CheckVictory()
@@ -39,7 +20,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (!zone.HasTree())
             {
-                return;
+                return; 
             }
         }
 
@@ -47,7 +28,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (!tree.IsWatered())
             {
-                return;
+                return; 
             }
         }
 

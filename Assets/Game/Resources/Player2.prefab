@@ -14,14 +14,14 @@ GameObject:
   - component: {fileID: 3444407056881161962}
   - component: {fileID: 3049335714037512617}
   - component: {fileID: 5509353627741691853}
+  - component: {fileID: -4182792052127614135}
   - component: {fileID: 7073062725962575758}
   - component: {fileID: 8259945725727449777}
-  - component: {fileID: -4182792052127614135}
   - component: {fileID: -7061532622778202236}
   - component: {fileID: -2559274212532287656}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,30 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &7073062725962575758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2980816937368071534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbed9914d9d9ae94d8f6cd662b97651d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8259945725727449777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2980816937368071534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 146eeab26552fc44394842d204cbb718, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-4182792052127614135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +168,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 8463276608028741578}
+--- !u!114 &7073062725962575758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980816937368071534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbed9914d9d9ae94d8f6cd662b97651d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canPickup: 0
+  hasWater: 0
+--- !u!114 &8259945725727449777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980816937368071534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146eeab26552fc44394842d204cbb718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-7061532622778202236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +211,7 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 2
+  observableSearch: 1
   ObservedComponents:
   - {fileID: -2559274212532287656}
   sceneViewId: 0

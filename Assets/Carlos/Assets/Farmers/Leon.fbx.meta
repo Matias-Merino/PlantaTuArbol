@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 2fde57aaa6d0a074bae30b4e5359cf57
+guid: 5e7e23d803bce0b42a8941683bfb8d60
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FarmerManBodySuit
-    second: {fileID: 2100000, guid: 110b27ef51451b04eb91b74c7ee238b4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FarmerManButtons
-    second: {fileID: 2100000, guid: 0455642eff7212d4685dc628f01c71fd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FarmerManEyesRound
-    second: {fileID: 2100000, guid: 48f6486e9fc2f0344ae3e40736bba21b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FarmerManSkin
-    second: {fileID: 2100000, guid: 96a5dff928c66394b9c6959904f20698, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

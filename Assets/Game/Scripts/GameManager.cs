@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         {
             if (!zone.HasTree())
             {
-                return; // Si alguna zona no tiene un árbol plantado, no hemos ganado aún.
+                return;
             }
         }
 
@@ -27,17 +27,16 @@ public class GameManager : MonoBehaviour
         {
             if (!tree.IsWatered())
             {
-                return; // Si algún árbol no ha sido regado, no hemos ganado aún.
+                return;
             }
         }
 
-        // Si todas las zonas tienen árboles plantados y todos los árboles han sido regados y crecido, se ha ganado el juego.
         Victory();
     }
 
     private void Victory()
     {
         Debug.Log("¡Victoria! Todos los árboles han sido plantados y han crecido.");
-        // Aquí puedes agregar lógica adicional para manejar la victoria, como mostrar un mensaje en pantalla o reiniciar el juego.
+        // logic
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8010038291180974723}
   - component: {fileID: 4160819747290543515}
   - component: {fileID: 5069220063448892648}
+  - component: {fileID: 1876057178121258533}
   - component: {fileID: 1278853941632846873}
   - component: {fileID: 6853310355639561538}
   m_Layer: 0
@@ -179,6 +180,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treePrefab: {fileID: 8340720772839873183, guid: 74ae68acd69740e42b8d99d65631d965, type: 3}
+--- !u!114 &1876057178121258533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068528136509777771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc90e73233585d545ba48f310ef921a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 8891335488734213728}
 --- !u!114 &1278853941632846873
 MonoBehaviour:
   m_ObjectHideFlags: 0

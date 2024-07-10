@@ -116,10 +116,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3083021621061428416}
-  - component: {fileID: 7407125588141517527}
   - component: {fileID: 1890242569849816547}
-  - component: {fileID: 3727070120789336553}
-  - component: {fileID: 6180293469216101413}
+  - component: {fileID: 7407125588141517527}
+  - component: {fileID: 2413430528135752695}
   m_Layer: 0
   m_Name: TreePrefab
   m_TagString: Tree
@@ -143,20 +142,6 @@ Transform:
   - {fileID: 5851925060829317396}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7407125588141517527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8340720772839873183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9eeba1de9e428842864e96a11823abc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  growthTime: 5
-  grownTreePrefab: {fileID: 5926412925313152525, guid: 2831658883ec17b499b4407718b35a06, type: 3}
 --- !u!65 &1890242569849816547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -178,7 +163,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 0.5, z: 1.5}
   m_Center: {x: 0, y: 0.25, z: 0}
---- !u!114 &3727070120789336553
+--- !u!114 &7407125588141517527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8340720772839873183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9eeba1de9e428842864e96a11823abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growthTime: 5
+  grownTreePrefab: {fileID: 5926412925313152525, guid: 2831658883ec17b499b4407718b35a06, type: 3}
+--- !u!114 &2413430528135752695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,41 +195,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: 6180293469216101413}
+  ObservedComponents: []
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &6180293469216101413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8340720772839873183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PositionModel:
-    SynchronizeEnabled: 1
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
-    ExtrapolateOption: 0
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 1
-    InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 5
-  m_ScaleModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0

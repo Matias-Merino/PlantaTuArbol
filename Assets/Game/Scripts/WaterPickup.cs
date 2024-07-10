@@ -1,14 +1,28 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterPickup : MonoBehaviour
+public class WaterPickup : MonoBehaviourPun
 {
-    private bool hasWater = false;
     private bool canPickup = false;
+    private bool hasWater = false;
+
+    public bool HasWater()
+    {
+        return hasWater;
+    }
+
+    public void UseWater()
+    {
+        hasWater = false;
+    }
 
     void Update()
     {
+        if (!photonView.IsMine)
+            return;
+
         if (canPickup && Input.GetKeyDown(KeyCode.E))
         {
             hasWater = true;
@@ -21,6 +35,7 @@ public class WaterPickup : MonoBehaviour
         if (other.gameObject.CompareTag("WaterSource"))
         {
             canPickup = true;
+            Debug.Log("Puedes recoger agua.");
         }
     }
 
@@ -29,16 +44,7 @@ public class WaterPickup : MonoBehaviour
         if (other.gameObject.CompareTag("WaterSource"))
         {
             canPickup = false;
+            Debug.Log("Has salido de la zona de recogida de agua.");
         }
-    }
-
-    public bool HasWater()
-    {
-        return hasWater;
-    }
-
-    public void UseWater()
-    {
-        hasWater = false;
     }
 }

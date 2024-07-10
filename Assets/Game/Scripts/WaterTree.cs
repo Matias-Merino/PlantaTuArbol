@@ -1,14 +1,18 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterTree : MonoBehaviour
+public class WaterTree : MonoBehaviourPun
 {
     private bool canWater = false;
     private TreeGrowth currentTree;
 
     void Update()
     {
+        if (!photonView.IsMine)
+            return;
+
         if (canWater && Input.GetKeyDown(KeyCode.E))
         {
             WaterPickup waterPickup = GetComponent<WaterPickup>();

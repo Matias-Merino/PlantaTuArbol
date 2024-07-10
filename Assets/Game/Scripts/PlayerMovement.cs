@@ -3,19 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviourPun
 {
     public float speed = 5f;
-    PhotonView view;
 
-    public void Start()
-    {
-        view = GetComponent<PhotonView>();
-    }
 
     void Update()
     {
-        if (view.IsMine)
+        if (photonView.IsMine)
         {
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
@@ -25,7 +20,18 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(movement * speed * Time.deltaTime);
 
         }
-
-       
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+        }
+        else
+        {
+            transform.position = (Vector3)stream.ReceiveNext();
+            transform.rotation = (Quaternion)stream.ReceiveNext();
+        }
     }
 }

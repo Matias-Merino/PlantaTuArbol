@@ -1,25 +1,33 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantTree : MonoBehaviour
+public class PlantTree : MonoBehaviourPun
 {
-    public GameObject treePrefab; // Prefab del árbol a plantar
+    public GameObject treePrefab;
     private bool canPlant = false;
     private PlantZone currentPlantZone;
 
     void Update()
     {
+        if (!photonView.IsMine)
+            return;
+
         if (canPlant && Input.GetKeyDown(KeyCode.E))
         {
             SeedPickup seedPickup = GetComponent<SeedPickup>();
 
             if (seedPickup != null && seedPickup.HasSeed() && currentPlantZone != null && !currentPlantZone.HasTree())
             {
-                Instantiate(treePrefab, currentPlantZone.transform.position, Quaternion.identity);
+                PhotonNetwork.Instantiate(treePrefab.name, currentPlantZone.transform.position, Quaternion.identity);
                 seedPickup.UseSeed();
                 currentPlantZone.PlantTree();
                 Debug.Log("Árbol plantado.");
+            }
+            else if (currentPlantZone != null && currentPlantZone.HasTree())
+            {
+                Debug.Log("Ya hay un árbol plantado en esta zona.");
             }
         }
     }

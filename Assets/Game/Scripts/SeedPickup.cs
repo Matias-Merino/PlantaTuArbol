@@ -1,14 +1,28 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeedPickup : MonoBehaviour
+public class SeedPickup : MonoBehaviourPun
 {
-    private bool hasSeed = false;
     private bool canPickup = false;
+    private bool hasSeed = false;
+
+    public bool HasSeed()
+    {
+        return hasSeed;
+    }
+
+    public void UseSeed()
+    {
+        hasSeed = false;
+    }
 
     void Update()
     {
+        if (!photonView.IsMine)
+            return;
+
         if (canPickup && Input.GetKeyDown(KeyCode.E))
         {
             hasSeed = true;
@@ -21,6 +35,7 @@ public class SeedPickup : MonoBehaviour
         if (other.gameObject.CompareTag("SeedBox"))
         {
             canPickup = true;
+            Debug.Log("Puedes recoger una semilla.");
         }
     }
 
@@ -29,16 +44,7 @@ public class SeedPickup : MonoBehaviour
         if (other.gameObject.CompareTag("SeedBox"))
         {
             canPickup = false;
+            Debug.Log("Has salido de la zona de recogida de semillas.");
         }
-    }
-
-    public bool HasSeed()
-    {
-        return hasSeed;
-    }
-
-    public void UseSeed()
-    {
-        hasSeed = false;
     }
 }

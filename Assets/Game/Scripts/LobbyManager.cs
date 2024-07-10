@@ -85,7 +85,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        PhotonNetwork.LoadLevel("Forest_Scene");
+        PhotonNetwork.LoadLevel("MainGame");
 
     }
 

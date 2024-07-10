@@ -1,3 +1,4 @@
+using Photon.Pun.Demo.PunBasics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,12 @@ public class TreeGrowth : MonoBehaviour
     private bool watered = false;
     public float growthTime = 5f; // Tiempo que tarda en crecer el árbol
     public GameObject grownTreePrefab; // Prefab del árbol crecido
+    private GameManager gameManager;
+
+    void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     public bool IsWatered()
     {
@@ -32,5 +39,6 @@ public class TreeGrowth : MonoBehaviour
         // Destruir el prefab del árbol original
         Destroy(gameObject);
         Debug.Log("El árbol ha crecido.");
+        gameManager.CheckVictory();
     }
 }

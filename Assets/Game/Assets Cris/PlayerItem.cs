@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PlayerItem : MonoBehaviourPunCallbacks
 {
@@ -21,6 +22,11 @@ public class PlayerItem : MonoBehaviourPunCallbacks
 
 
 
+    private void Awake()
+    {
+        playerProperties["playerAvatar"] = 0;
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+    }
     public void SetPlayerInfo(Player _player)
     {
         playerName.text = _player.NickName;
@@ -33,6 +39,12 @@ public class PlayerItem : MonoBehaviourPunCallbacks
 
         leftArrowButton.SetActive(true);
         rightArrowButton.SetActive(true);
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        UpdatePlayerItem(player);
+        
     }
 
     public void OnClickLeftArrow()

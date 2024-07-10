@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Lobby.unity
     guid: 7088ac36cbaa3674fb67d4cf9074f753
   - enabled: 1
-    path: Assets/Carlos/Escenas/Forest_Scene.unity
-    guid: 5acfa8f1d0340174a8a188a719f7072e
+    path: Assets/Game/Scenes/MainGame.unity
+    guid: eb80c2ce99fb82349b1a49b4358fc981
   m_configObjects: {}

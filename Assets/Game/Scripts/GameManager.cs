@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     private PlantZone[] plantZones;
     private TreeGrowth[] trees;
+    public GameObject canvas;
 
     void Start()
     {
@@ -39,5 +40,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("¡Victoria! Todos los árboles han sido plantados y han crecido.");
         // logic
+        canvas.SetActive(true);
     }
 }

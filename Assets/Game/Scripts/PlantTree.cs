@@ -11,28 +11,31 @@ public class PlantTree : MonoBehaviourPun
 
     void Update()
     {
-        if (!photonView.IsMine)
-            return;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (photonView.IsMine)
         {
-            Debug.Log("E presionada");
+     
+            if (canPlant && Input.GetKeyDown(KeyCode.E))
+            {
+                photonView.RPC("Plant", RpcTarget.AllBuffered);
+            }
         }
+    }
 
-        if (canPlant && Input.GetKeyDown(KeyCode.E))
+    [PunRPC]
+    void Plant()
+    {
+        SeedPickup seedPickup = GetComponent<SeedPickup>();
+
+        if (seedPickup != null && seedPickup.HasSeed() && currentPlantZone != null && !currentPlantZone.HasTree())
         {
-            SeedPickup seedPickup = GetComponent<SeedPickup>();
-
-            if (seedPickup != null && seedPickup.HasSeed() && currentPlantZone != null && !currentPlantZone.HasTree())
-            {
-                PhotonNetwork.Instantiate(treePrefab.name, currentPlantZone.transform.position, Quaternion.identity);
-                seedPickup.UseSeed();
-                currentPlantZone.PlantTree();
-                Debug.Log("Árbol plantado.");
-            }
-            else if (currentPlantZone != null && currentPlantZone.HasTree())
-            {
-                Debug.Log("Ya hay un árbol plantado en esta zona.");
-            }
+            PhotonNetwork.Instantiate(treePrefab.name, currentPlantZone.transform.position, Quaternion.identity);
+            seedPickup.UseSeed();
+            currentPlantZone.PlantTree();
+            Debug.Log("Árbol plantado.");
+        }
+        else if (currentPlantZone != null && currentPlantZone.HasTree())
+        {
+            Debug.Log("Ya hay un árbol plantado en esta zona.");
         }
     }
 

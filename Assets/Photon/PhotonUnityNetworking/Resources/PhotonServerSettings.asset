@@ -40,6 +40,10 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - RPC_WaterTree
+  - PickupWater
+  - WaterTrees
+  - SeedPick
+  - Plant
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

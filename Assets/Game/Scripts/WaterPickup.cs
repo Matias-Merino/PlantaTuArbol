@@ -10,17 +10,23 @@ public class WaterPickup : MonoBehaviourPun
 
     void Update()
     {
-        if (!photonView.IsMine)
-            return;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (photonView.IsMine)
         {
-            Debug.Log("E presionada");
+            
+            if (canPickup && Input.GetKeyDown(KeyCode.E))
+            {
+                photonView.RPC("PickupWater", RpcTarget.AllBuffered);
+                Debug.Log("Agua recogida.");
+            }
         }
-        if (canPickup && Input.GetKeyDown(KeyCode.E))
-        {
-            hasWater = true;
-            Debug.Log("Agua recogida.");
-        }
+    }
+
+    [PunRPC]
+
+    void PickupWater()
+    {
+        hasWater = true;
+        Debug.Log("Agua Recogida");
     }
 
     void OnTriggerEnter(Collider other)

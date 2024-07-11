@@ -22,7 +22,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
 
 
 
-    private void Awake()
+    private void Start()
     {
         playerProperties["playerAvatar"] = 0;
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
@@ -44,6 +44,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         UpdatePlayerItem(player);
+
         
     }
 
@@ -87,6 +88,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         {
             playerAvatar.sprite = avatars[(int)player.CustomProperties["playerAvatar"]];
             playerProperties["playerAvatar"] = (int)player.CustomProperties["playerAvatar"];
+
         }
         else
         {

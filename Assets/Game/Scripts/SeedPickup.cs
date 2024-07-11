@@ -20,19 +20,24 @@ public class SeedPickup : MonoBehaviourPun
 
     void Update()
     {
-        if (!photonView.IsMine)
-            return;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (photonView.IsMine)
         {
-            Debug.Log("E presionada");
-        }
 
-        if (canPickup && Input.GetKeyDown(KeyCode.E))
-        {
-            hasSeed = true;
-            Debug.Log("Semilla recogida.");
+            if (canPickup && Input.GetKeyDown(KeyCode.E))
+            {
+
+                photonView.RPC("SeedPick", RpcTarget.AllBuffered);
+            }
         }
     }
+
+    [PunRPC]
+    void SeedPick()
+    {
+        hasSeed = true;
+        Debug.Log("Semilla recogida.");
+    }
+
 
     void OnTriggerEnter(Collider other)
     {

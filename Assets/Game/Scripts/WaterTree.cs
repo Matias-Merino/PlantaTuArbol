@@ -10,24 +10,29 @@ public class WaterTree : MonoBehaviourPun
 
     void Update()
     {
-        if (!photonView.IsMine)
-            return;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (photonView.IsMine)
         {
-            Debug.Log("E presionada");
-        }
+            
 
-        if (canWater && Input.GetKeyDown(KeyCode.E))
-        {
-            WaterPickup waterPickup = GetComponent<WaterPickup>();
-
-            if (waterPickup != null && waterPickup.HasWater() && currentTree != null && !currentTree.IsWatered())
+            if (canWater && Input.GetKeyDown(KeyCode.E))
             {
-                waterPickup.UseWater();
-                currentTree.WaterTree();
-                Debug.Log("Árbol regado.");
+                WaterPickup waterPickup = GetComponent<WaterPickup>();
+
+                if (waterPickup != null && waterPickup.HasWater() && currentTree != null && !currentTree.IsWatered())
+                {
+                    photonView.RPC("WaterTrees", RpcTarget.AllBuffered);
+                }
             }
         }
+    }
+
+    [PunRPC]
+    void WaterTrees()
+    {
+        WaterPickup waterPickup = GetComponent<WaterPickup>();
+        waterPickup.UseWater();
+        currentTree.WaterTree();
+        Debug.Log("Árbol regado.");
     }
 
     void OnTriggerEnter(Collider other)
